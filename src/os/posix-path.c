@@ -49,9 +49,9 @@ typedef struct os_path
 */
 os_path* os_path_new()
 {
-    os_path* path = os_alloc_null(sizeof(os_path));
+    os_path* path = cpr_alloc_null(sizeof(os_path));
     static const size_t default_memsize = 1024;
-    path->pathstr = os_alloc_null(default_memsize);
+    path->pathstr = cpr_alloc_null(default_memsize);
     path->mem = default_memsize;
     path->size = 0;
     return path;
@@ -62,8 +62,8 @@ os_path* os_path_new()
 */
 void os_path_delete(os_path* path)
 {
-    os_free(path->pathstr);
-    os_free(path);
+    cpr_free(path->pathstr);
+    cpr_free(path);
 }
 
 /**

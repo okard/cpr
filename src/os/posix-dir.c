@@ -61,7 +61,7 @@ typedef struct os_dir_entry
 */
 os_dir* os_dir_new()
 {
-    os_dir* dir = os_alloc_null(sizeof(os_dir));
+    os_dir* dir = cpr_alloc_null(sizeof(os_dir));
     //TODO Initialize Structure here
     return dir;
 }
@@ -71,7 +71,7 @@ os_dir* os_dir_new()
 */
 void os_dir_delete(os_dir* dir)
 {
-    os_free(dir);
+    cpr_free(dir);
 }
 
 /**

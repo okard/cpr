@@ -31,7 +31,7 @@
 /**
 * Allocate Memory
 */
-void* os_alloc(size_t size)
+void* cpr_alloc(size_t size)
 {
    return malloc(size); 
 }
@@ -39,9 +39,9 @@ void* os_alloc(size_t size)
 /**
 * Allocate memory and set it to null
 */
-void* os_alloc_null(size_t size)
+void* cpr_alloc_null(size_t size)
 {
-    void* mem = os_alloc(size);
+    void* mem = cpr_alloc(size);
     memset(mem, 0, size);
     return mem;
 }
@@ -50,7 +50,7 @@ void* os_alloc_null(size_t size)
 /**
 * Freeing memory
 */
-void os_free(void* mem)
+void cpr_free(void* mem)
 {
     free(mem);
     mem = 0;

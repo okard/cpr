@@ -5,6 +5,7 @@ if solution() == nil then
     solution "libcpr"
         configurations { "Debug", "Release" }
         location "build"
+        targetdir "bin"
 end
 
 
@@ -15,7 +16,6 @@ project "libcpr"
     includedirs { "include" }
     files { "src/**.c" }
     targetname "cpr"
-    targetdir "bin"
 
     configuration { "linux", "gmake" }
         buildoptions { "-ansi", "-std=c99", "-fPIC" }

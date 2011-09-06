@@ -21,55 +21,56 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
     
-    Path Functions
+    VFS - Virtual File System
+    Virtual File System Handler
 */
-#include <cpr/path.h>
-
-#include <cpr/mem.h>
+#include <cpr/vfs.h>
 
 
-/// Posix Path Seperator
-static const char PATHSEP = '/';
+//forward declaration
+static cpr_vfs_dir* vfs_virt_dir_open(cpr_vfs_handle*, const char*);
 
-/**
-* posix dir structure
-*/
-typedef struct os_path
-{
-  char* pathstr;
-  size_t size;
-  size_t mem;
-  
-  //include os_dir and os_file here?
-} os_path;
+//forward declaration
+static cpr_vfs_file* vfs_virt_file_open(cpr_vfs_handle*, const char*);
 
 
 /**
-* Create new path object
+* Virtual File System Handler
 */
-os_path* os_path_new()
+static cpr_vfs_handler _vfs_virt_handler = {
+    .dir_open = &vfs_virt_dir_open,
+    .file_open = &vfs_virt_file_open
+    
+};
+
+/**
+* Virtual File System Handle
+*/
+static cpr_vfs_handle _vfs_virt_handle = {
+    .handler = &_vfs_virt_handler,
+    .type = CPR_VFS_TYPE_HANDLER,
+    .ctx = 0
+};
+
+/**
+* a virtual file system handler
+*/
+cpr_vfs_handle* cpr_vfs_virt_handler()
 {
-    os_path* path = cpr_alloc_null(sizeof(os_path));
-    static const size_t default_memsize = 1024;
-    path->pathstr = cpr_alloc_null(default_memsize);
-    path->mem = default_memsize;
-    path->size = 0;
-    return path;
+    return &_vfs_virt_handle;
+}
+
+
+/**
+* open dir virtual file system
+*/
+static cpr_vfs_dir* vfs_virt_dir_open(cpr_vfs_handle* handle, const char* path)
+{
 }
 
 /**
-* Delete path object
+* open file virtual file system
 */
-void os_path_delete(os_path* path)
+static cpr_vfs_file* vfs_virt_file_open(cpr_vfs_handle* handle, const char* path)
 {
-    cpr_free(path->pathstr);
-    cpr_free(path);
-}
-
-/**
-* Get path seperator
-*/
-char os_path_seperator()
-{
-    return PATHSEP;
 }

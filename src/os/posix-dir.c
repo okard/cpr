@@ -23,7 +23,7 @@
     
     Directory Functions
 */
-#include <cpr/os/dir.h>
+#include <cpr/dir.h>
 
 #include <cpr/mem.h>
 

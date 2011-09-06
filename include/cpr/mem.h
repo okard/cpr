@@ -43,6 +43,8 @@ void* cpr_alloc(size_t size);
 */
 void* cpr_alloc_null(size_t size);
 
+//realloc
+
 /**
 * Freeing memory
 */

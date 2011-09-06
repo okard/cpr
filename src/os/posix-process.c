@@ -23,7 +23,7 @@
     
     Process Functions
 */
-#include <cpr/os/process.h>
+#include <cpr/process.h>
 
 #include <cpr/mem.h>
 #include <cpr/error.h>
@@ -104,7 +104,7 @@ static void os_process_error(os_process* proc, int id, const char* const msg)
 */
 void os_process_start(os_process* proc, const char* path, const char* args[])
 {
-    //fork (vfork here?)
+    //fork (vfork here?), posix_spawn
     proc->pid = fork();
     
     if(proc->pid < 0)

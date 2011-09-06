@@ -21,55 +21,26 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
     
-    Path Functions
+    VFS - Virtual File System
 */
-#include <cpr/path.h>
+#include <cpr/vfs.h>
 
 #include <cpr/mem.h>
 
 
-/// Posix Path Seperator
-static const char PATHSEP = '/';
-
 /**
-* posix dir structure
+* Open a dir
 */
-typedef struct os_path
+cpr_vfs_dir* cpr_vfs_dir_open(cpr_vfs_handle* handle, const char* path)
 {
-  char* pathstr;
-  size_t size;
-  size_t mem;
-  
-  //include os_dir and os_file here?
-} os_path;
-
-
-/**
-* Create new path object
-*/
-os_path* os_path_new()
-{
-    os_path* path = cpr_alloc_null(sizeof(os_path));
-    static const size_t default_memsize = 1024;
-    path->pathstr = cpr_alloc_null(default_memsize);
-    path->mem = default_memsize;
-    path->size = 0;
-    return path;
+    return handle->handler->dir_open(handle, path);
 }
 
-/**
-* Delete path object
-*/
-void os_path_delete(os_path* path)
-{
-    cpr_free(path->pathstr);
-    cpr_free(path);
-}
 
 /**
-* Get path seperator
+* Open a file
 */
-char os_path_seperator()
+cpr_vfs_file* cpr_vfs_file_open(cpr_vfs_handle* handle, const char* path)
 {
-    return PATHSEP;
+    return handle->handler->file_open(handle, path);
 }

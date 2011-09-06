@@ -21,63 +21,14 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
     
-    Directory Functions
+    Test VFS
 */
-#ifndef __LIBCPR_DIR_H__
-#define __LIBCPR_DIR_H__
+#include <check.h>
+    
 
-#include <stddef.h>
-#include <stdbool.h>
+START_TEST (vfs_basic_test)
+{
+    //TODO
+}
+END_TEST
 
-/**
-* \deprecated
-* \defgroup Dir Directory Handling (Deprecated use vfs instead)
-* @{
-*/
-
-typedef struct os_dir os_dir;
-typedef struct os_dir_entry os_dir_entry;
-
-/**
-* Create new dir object
-*/
-os_dir* os_dir_new();
-
-/**
-* Delete dir object
-*/
-void os_dir_delete(os_dir* dir);
-
-/**
-* Open a dir
-*/
-bool os_dir_open(os_dir* dir, char* path);
-
-//dir_close
-
-/**
-* Get next entry
-*/
-bool os_dir_next(os_dir* dir, os_dir_entry* entry);
-
-
-//TODO lesser memory consume new/delete/clean for os_dir_entry
-
-/**
-* Get file size
-*/
-size_t os_get_filesize(char* path);
-
-/**
-* Is path a directory
-*/
-bool os_is_dir(char* path);
-
-
-//char* os_get_executabledir();
-// char *getcwd(char *buf, size_t size);
-// int chdir(const char *path);
-
-/** }@ */
-
-#endif

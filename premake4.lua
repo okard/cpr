@@ -1,4 +1,5 @@
 
+local include_tests = false
 
 -- Create Project if no one is available
 if solution() == nil then
@@ -6,6 +7,10 @@ if solution() == nil then
         configurations { "Debug", "Release" }
         location "build"
         targetdir "bin"
+        libdirs { "bin" }
+
+    include_tests = true
+
 end
 
 
@@ -19,3 +24,18 @@ project "libcpr"
 
     configuration { "linux", "gmake" }
         buildoptions { "-ansi", "-std=c99", "-fPIC" }
+
+
+
+if include_tests then
+
+project "libcpr_test"
+    kind "ConsoleApp"
+    language "C"
+    includedirs { "include" }
+    files { "tests/main.c" }
+    links { "cpr", "check" }
+    targetname "cpr_test"
+
+
+end

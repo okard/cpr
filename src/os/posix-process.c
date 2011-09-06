@@ -126,6 +126,8 @@ void os_process_start(os_process* proc, const char* path, const char* args[])
     //Bind input and output to stdin and stdout?
     //Child Process here
     //int execv (__const char *__path, char *__const __argv[])
+    //»char * const*« expected but »const char **«
+
     int result = execv(path, args);
     
     //should never go here?

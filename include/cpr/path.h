@@ -46,13 +46,26 @@ os_path* os_path_new();
 */
 void os_path_delete(os_path* path);
 
-//void os_path_set()
-//void os_path_append()
-//bool os_path_is_file();
-//bool os_path_is_dir();
-//os_dir* os_path_dir_open();
-//os_file* os_path_file_open();
-//char* os_path_str();
+/**
+* create new path from a given string
+*/
+//os_path* os_path_new_from(const char* str);
+
+
+//void os_path_set(os_path* path, const char* pathstr)
+//void os_path_join(os_path* path, const char* pathstr);
+//bool os_path_is_file(os_path* path);
+//bool os_path_is_dir(os_path* path);
+//char* os_path_full(os_path* path);
+//char* os_path_basename(os_path* path);
+//char* os_path_extname(os_path* path);
+//char* os_path_drive(os_path* path); // '/' on posix, 'letter:' on windows
+//char* os_path
+//os_path_relative
+//os_path_absolute
+//os_path_is_relative
+//os_path_is_absolute
+
 
 /**
 * Get path seperator

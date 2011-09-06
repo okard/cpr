@@ -21,63 +21,32 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
     
-    Directory Functions
+    Test Main
 */
-#ifndef __LIBCPR_DIR_H__
-#define __LIBCPR_DIR_H__
+#include <stdlib.h>
+#include <check.h>
 
-#include <stddef.h>
-#include <stdbool.h>
+#include "test_vfs.c"
 
-/**
-* \deprecated
-* \defgroup Dir Directory Handling (Deprecated use vfs instead)
-* @{
-*/
+Suite* cpr_suite()
+{
+  Suite *s = suite_create ("CPR");
 
-typedef struct os_dir os_dir;
-typedef struct os_dir_entry os_dir_entry;
+  TCase *tc_vfs = tcase_create ("VFS");
+  tcase_add_test (tc_vfs, vfs_basic_test);
 
-/**
-* Create new dir object
-*/
-os_dir* os_dir_new();
-
-/**
-* Delete dir object
-*/
-void os_dir_delete(os_dir* dir);
-
-/**
-* Open a dir
-*/
-bool os_dir_open(os_dir* dir, char* path);
-
-//dir_close
-
-/**
-* Get next entry
-*/
-bool os_dir_next(os_dir* dir, os_dir_entry* entry);
+  return s;
+}
 
 
-//TODO lesser memory consume new/delete/clean for os_dir_entry
 
-/**
-* Get file size
-*/
-size_t os_get_filesize(char* path);
-
-/**
-* Is path a directory
-*/
-bool os_is_dir(char* path);
-
-
-//char* os_get_executabledir();
-// char *getcwd(char *buf, size_t size);
-// int chdir(const char *path);
-
-/** }@ */
-
-#endif
+int main(int argc, char *argv[])
+{
+  int number_failed;
+  Suite *s = cpr_suite();
+  SRunner *sr = srunner_create (s);
+  srunner_run_all (sr, CK_NORMAL);
+  number_failed = srunner_ntests_failed (sr);
+  srunner_free (sr);
+  return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
+}

@@ -62,7 +62,7 @@ cpr_vfs_handle* cpr_vfs_virt_handler()
 
 //TODO _vfs_virt_file
 //TODO _vfs_virt_dir
-//tree???
+//rbtree??? hashmap
 
 /**
 * open dir virtual file system

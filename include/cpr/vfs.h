@@ -72,7 +72,7 @@ typedef cpr_vfs_handle cpr_vfs_dir;
 typedef cpr_vfs_handle cpr_vfs_file;
 
 
-//file open flags read, readwrite, exclusive, append
+//file open flags read, readwrite, exclusive, append, create
 
 
 
@@ -99,6 +99,8 @@ typedef struct cpr_vfs_handler
     //read
     //iteration
     //mount
+    
+    //os_path get_path;
 } cpr_vfs_handler;
 
 
@@ -119,11 +121,14 @@ cpr_vfs_handle* cpr_vfs_virt_handler();
 
 /**
 * get normal file system handler
+* usage: cpr_vfs_dir_open(cpr_vfs_fs_handler(), "/foo/foo.txt");
 */
 cpr_vfs_handle* cpr_vfs_fs_handler();
 
 
 //mount
+
+//check valid handle? size of memory? 
 
 /** }@ */
 

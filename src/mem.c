@@ -28,6 +28,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+//TODO save size of allocated memory? magic bytes for safety?
+
 /**
 * Allocate Memory
 */
@@ -46,6 +48,13 @@ void* cpr_alloc_null(size_t size)
     return mem;
 }
 
+/**
+* Reallocate memory
+*/
+void* cpr_realloc(void* ptr, size_t size)
+{
+    return realloc(ptr, size);
+}
 
 /**
 * Freeing memory

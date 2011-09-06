@@ -27,6 +27,8 @@
 
 #include <cpr/mem.h>
 
+//utf8 path?
+
 
 /// Posix Path Seperator
 static const char PATHSEP = '/';

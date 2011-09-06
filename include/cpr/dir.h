@@ -30,6 +30,7 @@
 #include <stdbool.h>
 
 /**
+* \deprecated
 * \defgroup Dir Directory Handling
 * @{
 */

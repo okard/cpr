@@ -60,12 +60,16 @@ cpr_vfs_handle* cpr_vfs_virt_handler()
     return &_vfs_virt_handle;
 }
 
+//TODO _vfs_virt_file
+//TODO _vfs_virt_dir
+//tree???
 
 /**
 * open dir virtual file system
 */
 static cpr_vfs_dir* vfs_virt_dir_open(cpr_vfs_handle* handle, const char* path)
 {
+    return 0;
 }
 
 /**
@@ -73,4 +77,5 @@ static cpr_vfs_dir* vfs_virt_dir_open(cpr_vfs_handle* handle, const char* path)
 */
 static cpr_vfs_file* vfs_virt_file_open(cpr_vfs_handle* handle, const char* path)
 {
+    return 0;
 }

@@ -71,6 +71,11 @@ typedef cpr_vfs_handle cpr_vfs_dir;
 */
 typedef cpr_vfs_handle cpr_vfs_file;
 
+
+//file open flags read, readwrite, exclusive, append
+
+
+
 /**
 * a vfs handler
 */
@@ -82,8 +87,18 @@ typedef struct cpr_vfs_handler
     ///open a file from cpr_vfs_handle
     cpr_vfs_file* (*file_open)(cpr_vfs_handle*, const char*);
     
+    
+    //get name
+    //get path
+    //get mtime, atime, ...
+    //get size
+    //get position
+    
+    //close
     //write
     //read
+    //iteration
+    //mount
 } cpr_vfs_handler;
 
 

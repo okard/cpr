@@ -26,12 +26,15 @@
 #ifndef __LIBCPR_TYPES_H__
 #define __LIBCPR_TYPES_H__
 
-typedef unsigned char ubyte;
-typedef signed char byte;
+typedef unsigned char cpr_ubyte;
+typedef signed char cpr_byte;
 
-typedef unsigned short ushort;
-typedef unsigned int uint;
+typedef unsigned short cpr_ushort;
+typedef unsigned int cpr_uint;
 
+//TODO bit types (cpr_ubyte8)
+//TODO endian type?
+//TODO architecture arm, x86, x64
 
 
 #endif

@@ -41,7 +41,8 @@ typedef enum cpr_vfs_handle_type
 {
     CPR_VFS_TYPE_HANDLER = 0,
     CPR_VFS_TYPE_DIRECTORY = 1,
-    CPR_VFS_TYPE_FILE = 2
+    CPR_VFS_TYPE_FILE = 2,
+    CPR_VFS_TYPE_LINK = 3
 } cpr_vfs_handle_type;
 
 /**
@@ -75,7 +76,6 @@ typedef cpr_vfs_handle cpr_vfs_file;
 //file open flags read, readwrite, exclusive, append, create
 
 
-
 /**
 * a vfs handler
 */
@@ -101,6 +101,7 @@ typedef struct cpr_vfs_handler
     //mount
     
     //os_path get_path;
+    //size_t (*content_size)(cpr_vfs_handle_type);
 } cpr_vfs_handler;
 
 
@@ -129,6 +130,8 @@ cpr_vfs_handle* cpr_vfs_fs_handler();
 //mount
 
 //check valid handle? size of memory? 
+//copy api for handles?
+
 
 /** }@ */
 

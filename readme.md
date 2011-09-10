@@ -20,3 +20,9 @@ Written in ANSI C99
 * Event Handling
 * Network Handling
 
+## Why?
+
+There are some other c base libraries like netscape portable runtime (NSPR) 
+,apache portable runtime (apr) and of course the glib library. Why develop
+an another one? Because i don't like them and because they don't match my
+requirements perfectly, and for learning purposes.    

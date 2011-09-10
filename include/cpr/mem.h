@@ -34,6 +34,17 @@
 */
 
 /**
+* Allocator structure
+*/
+typedef struct cpr_allocator
+{
+    //alloc
+    //free
+    //realloc
+} cpr_allocator;
+
+
+/**
 * Allocate Memory
 */
 void* cpr_alloc(size_t size);

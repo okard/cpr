@@ -21,35 +21,59 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
     
-    Test Main
+    string class
 */
-#include <stdlib.h>
-#include <check.h>
+#ifndef __LIBCPR_STRING_H__
+#define __LIBCPR_STRING_H__
 
-#include "test_vfs.c"
+#include <stddef.h>
 
-Suite* cpr_suite()
+/**
+* string encoding
+*/
+typedef enum cpr_encoding
 {
-    Suite *s = suite_create ("CPR");
+    CPR_ENCODING_ASCII,
+    CPR_ENCODING_UTF8,
+    CPR_ENCODING_UTF16,
+    CPR_ENCODING_UTF32
+} cpr_encoding;
 
-    //vfs tests
-    TCase *tc_vfs = tcase_create ("VFS");
-    tcase_add_test (tc_vfs, vfs_basic_test);
-
+/**
+* string structure
+*/
+typedef struct cpr_string
+{
+    /// Encoding of string
+    cpr_encoding encoding;
     
-    suite_add_tcase (s, tc_vfs);
-    return s;
-}
+    /// Pointer to string content
+    void* str;
+    
+    /// size of string
+    size_t length;
+    
+    /// size of allocated memory
+    size_t mem;
+} cpr_string;
 
 
+/**
+* Create new string
+*/
+cpr_string* cpr_string_new();
 
-int main(int argc, char *argv[])
-{
-  int number_failed;
-  Suite *s = cpr_suite();
-  SRunner *sr = srunner_create (s);
-  srunner_run_all (sr, CK_NORMAL);
-  number_failed = srunner_ntests_failed (sr);
-  srunner_free (sr);
-  return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
-}
+/**
+* Delete string
+*/
+void cpr_string_free(cpr_string* str);
+
+//TODO append
+//TODO set
+//TODO length
+//TODO shrink
+//TODO space?
+//TODO duplicate/copy
+
+
+#endif /* __LIBCPR_STRING_H__ */

@@ -21,35 +21,31 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
     
-    Test Main
+    String Handling
 */
-#include <stdlib.h>
-#include <check.h>
 
-#include "test_vfs.c"
+#include <cpr/string.h>
 
-Suite* cpr_suite()
+#include <cpr/mem.h>
+
+/**
+* Create new string
+*/
+cpr_string* cpr_string_new()
 {
-    Suite *s = suite_create ("CPR");
-
-    //vfs tests
-    TCase *tc_vfs = tcase_create ("VFS");
-    tcase_add_test (tc_vfs, vfs_basic_test);
-
-    
-    suite_add_tcase (s, tc_vfs);
-    return s;
+    cpr_string* str = cpr_alloc_null(sizeof(cpr_string));
+    //allocate 1024 bytes as buffer 
+    str->str = cpr_alloc_null(1024);
+    str->mem = 1024;
+    return str;
 }
 
-
-
-int main(int argc, char *argv[])
+/**
+* Delete string
+*/
+void cpr_string_free(cpr_string* str)
 {
-  int number_failed;
-  Suite *s = cpr_suite();
-  SRunner *sr = srunner_create (s);
-  srunner_run_all (sr, CK_NORMAL);
-  number_failed = srunner_ntests_failed (sr);
-  srunner_free (sr);
-  return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
+    cpr_free(str->str);
+    str->str = 0;
+    cpr_free(str);
 }

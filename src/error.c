@@ -43,7 +43,7 @@ cpr_error* cpr_error_new(int id, const char* const msg, void* ctx)
 /**
 * Create new error object by id
 */
-cpr_error* cpr_error_new_byid(cpr_error_id id, const char* const msg, void* ctx)
+cpr_error* cpr_error_new_byid(enum cpr_error_id id, const char* const msg, void* ctx)
 {
     return cpr_error_new(id, msg, ctx);
 }

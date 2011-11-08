@@ -23,6 +23,7 @@
     
     VFS - Virtual File System
 */
+#pragma once
 #ifndef __LIBCPR_VFS_H__
 #define __LIBCPR_VFS_H__
 
@@ -32,7 +33,7 @@
 */
 
 //forward declaration
-typedef struct cpr_vfs_handler cpr_vfs_handler;
+typedef struct cpr_vfs_handler;
 
 /**
 * types of vfs handle
@@ -49,10 +50,10 @@ typedef enum cpr_vfs_handle_type
 * a file system handle
 * handler, dir or file
 */
-typedef struct cpr_vfs_handle
+typedef struct
 {
     /// Provider
-    cpr_vfs_handler* handler;
+    struct cpr_vfs_handler* handler;
     
     /// type 
     cpr_vfs_handle_type type;

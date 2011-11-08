@@ -23,6 +23,7 @@
     
     Error Functions
 */
+#pragma once
 #ifndef __LIBCPR_ERROR_H__
 #define __LIBCPR_ERROR_H__
 
@@ -34,7 +35,7 @@
 /**
 * Default error ids
 */
-typedef enum cpr_error_id
+enum cpr_error_id
 {
     CPR_ERROR_NO_ERROR = 0,
     CPR_ERROR_UNKOWN = 1,
@@ -43,12 +44,12 @@ typedef enum cpr_error_id
     OS_ERROR_PROCESS,
     
     CPR_ERROR_MAXID
-} cpr_error_id;
+};
 
 /**
 * Error Structure
 */
-typedef struct cpr_error
+typedef struct
 {
     int id;
     char* msg;
@@ -69,7 +70,7 @@ cpr_error* cpr_error_new(int id, const char* const msg, void* ctx);
 /**
 * Create new error object by id
 */
-cpr_error* cpr_error_new_byid(cpr_error_id id, const char* const msg, void* ctx);
+cpr_error* cpr_error_new_byid(enum cpr_error_id id, const char* const msg, void* ctx);
 
 /**
 * Freeing Error

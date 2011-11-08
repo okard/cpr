@@ -23,6 +23,7 @@
     
     Default Types
 */
+#pragma once
 #ifndef __LIBCPR_TYPES_H__
 #define __LIBCPR_TYPES_H__
 

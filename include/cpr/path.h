@@ -23,6 +23,7 @@
     
     Path Functions
 */
+#pragma once
 #ifndef __LIBCPR_PATH_H__
 #define __LIBCPR_PATH_H__
 

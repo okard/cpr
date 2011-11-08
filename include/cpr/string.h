@@ -23,6 +23,7 @@
     
     string class
 */
+#pragma once
 #ifndef __LIBCPR_STRING_H__
 #define __LIBCPR_STRING_H__
 

@@ -23,6 +23,7 @@
     
     Memory Functions
 */
+#pragma once
 #ifndef __LIBCPR_MEM_H__
 #define __LIBCPR_MEM_H__
 
@@ -36,12 +37,12 @@
 /**
 * Allocator structure
 */
-typedef struct cpr_allocator
+struct cpr_allocator
 {
     //alloc
     //free
     //realloc
-} cpr_allocator;
+};
 
 
 /**

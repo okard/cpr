@@ -23,6 +23,7 @@
     
     Process Functions
 */
+#pragma once
 #ifndef __LIBCPR_PROCESS_H__
 #define __LIBCPR_PROCESS_H__
 
